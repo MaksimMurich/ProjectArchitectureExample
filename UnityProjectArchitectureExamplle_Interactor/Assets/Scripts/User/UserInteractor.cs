@@ -1,4 +1,5 @@
 ﻿using Base;
+using User.View;
 
 namespace User {
     public class UserInteractor : Interactor {
@@ -7,12 +8,7 @@ namespace User {
 
         private UserRepository repository;
 
-        public UserInteractor(UserRepository repository) {
-            this.repository = repository;
-            this.repository.Initialize();
-        }
-
-        public override void Initialize() {
+        public UserInteractor() {
         }
 
         public bool IsFirstOpen() {
@@ -26,6 +22,16 @@ namespace User {
         public void AddOpenAppCount() {
             repository.OpenAppCount++;
             repository.Save();
+        }
+
+        public override void OnCreated() {
+            base.OnCreated();
+            repository = TestArchitecture.repositoriesStorage.GetRepository<UserRepository>();
+        }
+
+        public override void OnStarted() {
+            base.OnStarted();
+
         }
     }
 }

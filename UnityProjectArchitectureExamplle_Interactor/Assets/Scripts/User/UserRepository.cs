@@ -13,6 +13,10 @@ namespace User {
             OpenAppCount = PlayerPrefs.GetInt(OPEN_APP_COUNT_KEY);
         }
 
+        public override void OnCreated() {}
+
+        public override void OnStarted() {}
+
         public override void Save() {
             PlayerPrefs.SetInt(OPEN_APP_COUNT_KEY, OpenAppCount);
         }
