@@ -8,18 +8,14 @@ namespace Base {
 
         private Dictionary<Type, Interactor> interactors;
 
-        public InteractorsStorage() {
-            interactors = new Dictionary<Type, Interactor>();
+        private SceneConfig sceneConfig;
+
+        public InteractorsStorage(SceneConfig sceneConfig) {
+            this.sceneConfig = sceneConfig;
         }
 
         public void CreateAll() {
-            CreateInteractor<UserInteractor>();
-        }
-
-        public void CreateInteractor<T>() where T : Interactor, new() {
-            T interactor = new T();
-            Type type = interactor.GetType();
-            interactors.Add(type, interactor);
+            interactors = sceneConfig.CreateAllInteractors();
         }
 
         /// <summary>
@@ -48,7 +44,7 @@ namespace Base {
             }
         }
 
-        public T GetInteractor<T>() where T : Interactor {
+        public T Get<T>() where T : Interactor {
             Type type = typeof(T);
             return (T)interactors[type];
         }

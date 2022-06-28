@@ -1,0 +1,20 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.14f1 (51d2f824827f) revision 5362424'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1645; Version 2009; 64bit' Language: 'ru' Physical Memory: 8073 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.14f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Dev/Unity/MyCodeExamples/ProjectArchitectureExample/UnityProjectArchitectureExamplle
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49435
+Successfully changed project path to: D:/Dev/Unity/MyCodeExamples/ProjectArchitectureExample/UnityProjectArchitectureExamplle
+D:/Dev/Unity/MyCodeExamples/ProjectArchitectureExample/UnityProjectArchitectureExamplle

@@ -7,18 +7,15 @@ namespace Base {
 
         private Dictionary<Type, Repository> repositories;
 
-        public RepositoriesStorage() {
+        public SceneConfig sceneConfig;
+
+        public RepositoriesStorage(SceneConfig sceneConfig) {
             repositories = new Dictionary<Type, Repository>();
+            this.sceneConfig = sceneConfig;
         }
 
         public void CreateAll() {
-            CreateRepository<UserRepository>();
-        }
-
-        public void CreateRepository<T>() where T : Repository, new() {
-            T repository = new T();
-            Type type = repository.GetType();
-            repositories.Add(type, repository);
+            repositories = sceneConfig.CreateAllRepositories();
         }
 
         /// <summary>
@@ -48,7 +45,7 @@ namespace Base {
             }
         }
 
-        public T GetRepository<T>() where T : Repository {
+        public T Get<T>() where T : Repository {
             Type type = typeof(T);
             return (T)repositories[type];
         }
