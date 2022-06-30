@@ -73,8 +73,8 @@ namespace Base {
             async.allowSceneActivation = true;
         }
 
-        public T GetInteractor<T>() where T : Feature, new() {
-            return currentScene.GetInteractor<T>();
+        public T GetFeature<T>() where T : Feature, new() {
+            return currentScene.GetFeature<T>();
         }
     }
 }

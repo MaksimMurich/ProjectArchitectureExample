@@ -30,7 +30,7 @@ namespace Base {
             features.InvokeOnStart();
         }
 
-        public T GetInteractor<T>() where T : Feature, new() {
+        public T GetFeature<T>() where T : Feature, new() {
             return features.Get<T>();
         }
     }

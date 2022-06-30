@@ -15,7 +15,7 @@ namespace Base {
         }
 
         public void CreateAll() {
-            features = sceneConfig.CreateAllInteractors();
+            features = sceneConfig.CreateAllFeatures();
         }
 
         /// <summary>

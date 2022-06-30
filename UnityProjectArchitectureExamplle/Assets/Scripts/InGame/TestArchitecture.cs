@@ -23,8 +23,8 @@ public class TestArchitecture : MonoBehaviour {
             yield return null;
         }
 
-        UserFeature userInteractor = sceneManager.currentScene.GetInteractor<UserFeature>();
-        userInteractor.AddOpenAppCount();
-        openAppCount.text = userInteractor.OpenAppCount.ToString();
+        UserFeature userFeature = sceneManager.currentScene.GetFeature<UserFeature>();
+        userFeature.AddOpenAppCount();
+        openAppCount.text = userFeature.OpenAppCount.ToString();
     }
 }
