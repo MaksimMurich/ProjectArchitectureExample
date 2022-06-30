@@ -66,7 +66,7 @@ namespace Base {
             var async = SceneManager.LoadSceneAsync(config.SceneName);
             async.allowSceneActivation = false;
 
-            while(async.progress < 0.9) {//0.9 - value of full loaded scene without unload previous scene
+            while(async.isDone) {
                 yield return null;
             }
 
