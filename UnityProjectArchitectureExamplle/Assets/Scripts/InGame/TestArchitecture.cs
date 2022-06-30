@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts;
 using Base;
-using InGame;
 using System.Collections;
 using UnityEngine;
 using User;
@@ -24,8 +23,7 @@ public class TestArchitecture : MonoBehaviour {
             yield return null;
         }
 
-        //Test architecture work
-        UserInteractor userInteractor = sceneManager.currentScene.GetInteractor<UserInteractor>();
+        UserFeature userInteractor = sceneManager.currentScene.GetInteractor<UserFeature>();
         userInteractor.AddOpenAppCount();
         openAppCount.text = userInteractor.OpenAppCount.ToString();
     }

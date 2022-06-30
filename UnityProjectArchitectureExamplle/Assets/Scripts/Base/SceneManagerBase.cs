@@ -73,11 +73,7 @@ namespace Base {
             async.allowSceneActivation = true;
         }
 
-        public T GetRepository<T>() where T : Repository, new(){
-            return currentScene.GetRepository<T>();
-        }
-
-        public T GetInteractor<T>() where T : Interactor, new() {
+        public T GetInteractor<T>() where T : Feature, new() {
             return currentScene.GetInteractor<T>();
         }
     }

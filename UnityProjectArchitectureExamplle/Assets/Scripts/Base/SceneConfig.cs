@@ -6,19 +6,12 @@ namespace Base {
 
         public abstract string SceneName { get; }
 
-        public abstract Dictionary<Type, Interactor> CreateAllInteractors();
-        public abstract Dictionary<Type, Repository> CreateAllRepositories();
+        public abstract Dictionary<Type, Feature> CreateAllInteractors();
 
-        public void CreateInteractor<T>(Dictionary<Type, Interactor> interactors) where T : Interactor, new() {
-            T interactor = new T();
+        public void CreateInteractor<T>(Dictionary<Type, Feature> features) where T : Feature, new() {
+            T feature = new T();
             Type type = typeof(T);
-            interactors[type] = interactor;
-        }
-
-        public void CreateRepository<T>(Dictionary<Type, Repository> repositories) where T : Repository, new() {
-            T repository = new T();
-            Type type = typeof(T);
-            repositories[type] = repository;
+            features[type] = feature;
         }
     }
 }

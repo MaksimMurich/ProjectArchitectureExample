@@ -1,7 +1,7 @@
 using System;
 
 namespace Base {
-    public abstract class Interactor {
+    public abstract class Feature {
 
         /// <summary>
         /// Calls after creatoin, before initialized

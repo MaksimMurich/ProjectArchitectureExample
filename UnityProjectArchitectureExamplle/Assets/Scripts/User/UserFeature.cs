@@ -1,18 +1,23 @@
 ﻿using Base;
 
 namespace User {
-    public class UserInteractor : Interactor {
+    public class UserFeature : Feature {
 
         public int OpenAppCount => repository.OpenAppCount;
 
         private UserRepository repository;
 
-        public UserInteractor() {
+        public UserFeature() {
+            repository = new UserRepository();
+        }
+
+        public override void Initialize() {
+            repository.Initialize();
+            base.Initialize();
         }
 
         public override void OnCreated() {
             base.OnCreated();
-            repository = TestArchitecture.sceneManager.GetRepository<UserRepository>();
         }
 
         public override void OnStarted() {

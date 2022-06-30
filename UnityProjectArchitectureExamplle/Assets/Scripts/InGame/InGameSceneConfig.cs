@@ -8,22 +8,13 @@ namespace InGame {
         public const string SCENE_NAME = "InGame";
         public override string SceneName => SCENE_NAME;
 
-        public override Dictionary<Type, Interactor> CreateAllInteractors() {
+        public override Dictionary<Type, Feature> CreateAllInteractors() {
 
-            Dictionary<Type, Interactor> interactors = new Dictionary<Type, Interactor>();
+            Dictionary<Type, Feature> features = new Dictionary<Type, Feature>();
 
-            CreateInteractor<User.UserInteractor>(interactors);
+            CreateInteractor<User.UserFeature>(features);
 
-            return interactors;
-        }
-
-        public override Dictionary<Type, Repository> CreateAllRepositories() {
-
-            Dictionary<Type, Repository> repositories = new Dictionary<Type, Repository>();
-
-            CreateRepository<User.UserRepository>(repositories);
-
-            return repositories;
+            return features;
         }
     }
 }

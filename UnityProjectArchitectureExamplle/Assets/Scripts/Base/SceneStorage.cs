@@ -1,48 +1,37 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Base {
     public class SceneStorage {
 
         public bool IsInitialized = false;
 
-        private InteractorsStorage interactorsStorage;
-        private RepositoriesStorage repositoriesStorage;
+        private FeaturesStorage features;
 
         public SceneStorage(SceneConfig config) {
-            interactorsStorage = new InteractorsStorage(config);
-            repositoriesStorage = new RepositoriesStorage(config);
+            features = new FeaturesStorage(config);
         }
 
         //@TODO public coroutine is bad
         public IEnumerator Initialize() {
 
-            interactorsStorage.CreateAll();
-            repositoriesStorage.CreateAll();
+            features.CreateAll();
 
             yield return null;
 
-            interactorsStorage.InvokeOnCreatedToAll();
-            repositoriesStorage.SendOnCreatedToAll();
+            features.InvokeOnCreatedToAll();
 
             yield return null;
 
-            interactorsStorage.InitializeAll();
-            repositoriesStorage.InitializeAll();
+            features.InitializeAll();
             IsInitialized = true;
 
             yield return null;
 
-            interactorsStorage.InvokeOnStart();
-            repositoriesStorage.InvokeOnStarted();
+            features.InvokeOnStart();
         }
 
-        public T GetRepository<T>() where T : Repository, new() {
-            return repositoriesStorage.Get<T>();
-        }
-
-        public T GetInteractor<T>() where T : Interactor, new() {
-            return interactorsStorage.Get<T>();
+        public T GetInteractor<T>() where T : Feature, new() {
+            return features.Get<T>();
         }
     }
 }
